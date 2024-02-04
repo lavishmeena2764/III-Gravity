@@ -183,7 +183,9 @@ nav[data-astro-cid-5blmo7yk] {
 }
 
 footer[data-astro-cid-5jp7rtjd] {
-    opacity: .5
+    opacity: .5;
+    z-index:2;
+    position: relative;
 }
 
 .wrapper[data-astro-cid-5jp7rtjd] {
@@ -1206,6 +1208,7 @@ body{
 }
 
 .item-summary {
+    border-radius: 5px;
 	width: 100%;
 	background-color: #eaedef;
 	padding: 1.5rem;
@@ -1231,6 +1234,7 @@ body{
 	 		IMAGE
 -------------------*/
 .image-wrapper {
+    border-radius: 5px;
 	float: left;
   height: 13em;
 	order: -1;
@@ -1324,8 +1328,8 @@ body{
 
 .date, .time {
 	position: relative;
-	top: 0.7em;
-	padding: 0.6rem;
+	/* top: 0.7em;
+	padding: 0.6rem; */
     color: black;
 }
 
