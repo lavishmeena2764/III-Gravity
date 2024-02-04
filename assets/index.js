@@ -1028,17 +1028,3 @@ u.init(document.querySelectorAll("[data-tilt]")));
 u.init(Array.from(document.querySelectorAll(".prizes-primary > img")), {
     reverse: !0
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-

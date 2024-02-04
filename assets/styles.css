@@ -120,7 +120,8 @@ nav[data-astro-cid-5blmo7yk] {
 .nav-main[data-astro-cid-5blmo7yk] {
     display: flex;
     gap: 1rem;
-    list-style: none
+    list-style: none;
+    color: white;
 }
 
 .nav-socials[data-astro-cid-5blmo7yk] a[data-astro-cid-5blmo7yk] {
@@ -137,7 +138,12 @@ nav[data-astro-cid-5blmo7yk] {
 .nav-main[data-astro-cid-5blmo7yk] li[data-astro-cid-5blmo7yk] {
     transition: transform .2s ease;
     position: relative;
-    cursor: pointer
+    cursor: pointer;
+    color: white;
+}
+.nav-main[data-astro-cid-5blmo7yk] li[data-astro-cid-5blmo7yk] a {
+    color: white;
+    font-size: 16px;
 }
 
 .nav-main[data-astro-cid-5blmo7yk] li[data-astro-cid-5blmo7yk]:hover {
@@ -917,7 +923,7 @@ body{
     font-size: 30px;
   }
   .spkr-p{
-    font-size: 14px;
+    font-size: 10px;
     margin:10px;
     visibility:hidden;
     opacity: 0;
@@ -926,10 +932,11 @@ body{
     cursor:pointer; 
   }
   .card2:hover .description{
-    height:150px;
+    height:100px;
     bottom:-4px;
     /* transition: .5s;/ */
     background:black;
+    opacity: 0.7;
   }
   .card2:hover p{
     opacity:1;
@@ -1088,3 +1095,540 @@ body{
   height:100%;
   margin: 30px;
 }
+
+
+
+
+
+
+
+
+
+
+
+/*-------------------
+	 			Flip
+-------------------*/
+
+.card-container {
+	transition: width 200ms linear 0s;
+	perspective: 1000px;
+}
+
+.card-container .flip-animation {
+	transform: rotateY(0deg);
+}
+
+.card-container.addFlip .flip-animation,
+ .card-container.addFlip .flip-animation ~ .backCard {
+	transform: rotateY(180deg);
+}
+
+.wrapper1{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.flip-animation {
+	position: relative;
+	transform-style: preserve-3d;
+	transition: transform 550ms linear 0s;
+}
+
+.wrapper1 .card-container {
+		/* height: 50em; */
+        /* margin: 20px; */
+}
+
+.wrapper1.frontback-cards .item-card {
+	z-index: 2;
+	transform: rotateY(0deg);
+}
+
+.wrapper1.frontback-cards .item-card-details {
+	z-index: 1;
+	transform: rotateY(180deg);
+}
+
+.wrapper1.frontback-cards .item-card,
+.wrapper1.frontback-cards .item-card-details {
+	position: absolute;
+	top: 0;
+	left: 0;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+.wrapper1 .item-card-details {
+		margin-top: -2em;
+}
+
+.backCard-flip .bio-band {
+	transform-origin: 10% 100%;
+	animation: scaleIn 
+						 1000ms 
+						 cubic-bezier(0.71, 0.55, 0.62, 1.57) 
+						 0.3s both;
+}
+
+.backCard-flip .bio-title {
+	transform-origin: 10% 100%;
+	animation: scaleIn 
+						 1000ms 
+						 cubic-bezier(0.71, 0.55, 0.62, 1.57) 
+						 0.7s both;
+}
+
+/*-------------------
+	 		LAYOUT
+-------------------*/
+.card-container {
+    width: fit-content;
+    height: fit-content;
+	/* width: 100%; */
+	/* height: 28em; */
+  /* margin: 0em auto; */
+	font-family: "Roboto", sans-serif;
+	font-size: 1em;
+}
+
+/*--flexbox--*/
+.item-card,
+.item-card-details {
+	display: -webkit-box; 
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex; 
+ 	-webkit-flex-wrap: wrap;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.item-summary {
+	width: 100%;
+	background-color: #eaedef;
+	padding: 1.5rem;
+	box-sizing: border-box;
+	margin-top: -0.2em;
+}
+
+.bio-block,
+.scroll-block,
+.more-info {
+	background-color: #eaedef;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.bio-block {
+	border-radius: 0.45em 0.45em 0 0;
+	padding: 1em 1.5em 0.2em;
+	
+}
+
+/*-------------------
+	 		IMAGE
+-------------------*/
+.image-wrapper {
+	float: left;
+  height: 13em;
+	order: -1;
+	position: relative;
+}
+
+@supports (display: grid) {
+	.image-wrapper {
+		grid-column: span 2;
+		grid-row: 1;
+	}
+}
+
+.image-wrapper::after {
+	content: "";
+	position: absolute;
+	display: block;
+	margin: auto;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-image: linear-gradient(
+		to top,
+		rgba(64, 101, 173, 0.7) 0%,
+		rgba(0, 0, 0, 0) 100%
+	);
+}
+
+.featured-image {
+	width: 100%;
+	border-radius: 0.45em 0.45em 0 0;
+	object-fit: cover;
+	height: 100%;
+}
+
+/*-------------------
+	 		TEXT
+-------------------*/
+.title {
+	font-size: 1.5em;
+	transform-origin: 10% 100%;
+	font-weight: 900;
+	color: #313b40;
+	animation: scaleInUp 
+						 800ms 
+						 cubic-bezier(0.71, 0.55, 0.62, 1.57) 
+						 1s both;
+}
+
+.venue,
+.street-address,
+.locality {
+	margin: 0.3em 0;
+	color: #313b40;
+	opacity: 0.85;
+	transform-origin: 10% 100%;
+	animation: scaleInUp 
+						 800ms
+						 cubic-bezier(0.71, 0.55, 0.62, 1.57) 
+					 	 1s both;
+}
+
+
+.item-time-date {
+	float: left;
+	order: -1;
+    color: black;
+}
+
+@supports (display:grid){
+	.item-time-date {
+		grid-column: span 2;
+		grid-row: 2;
+	}
+}
+
+.item-time-date {
+	z-index: 100;
+	width: 60%;
+	height: 2.5em;
+	font-size: 0.9em;
+	color: #313b40;
+	background-color: #fff;
+	margin: -1.5em 0 -1.5em 4.5em;
+	font-weight: 900;
+	border-radius: 0.3em;
+	text-align: center;
+	animation: scaleIn 0.8s cubic-bezier(0.71, 0.55, 0.62, 1.57) 0.8s both;
+}
+
+.date, .time {
+	position: relative;
+	top: 0.7em;
+	padding: 0.6rem;
+    color: black;
+}
+
+.time {
+	border-left: 1px solid #444;
+}
+
+.address {
+	font-style: normal;
+}
+
+.venue {
+	font-weight: 500;
+    width: 320px;
+    /* text-align: center; */
+    overflow: hidden;
+}
+
+.bio-band {
+	color: #888;
+	opacity: 0.6;
+	font-size: 1.1em;
+	margin-bottom: 0;
+}
+
+.bio-title {
+	font-size: 1.5em;
+	color: #313b40;
+	margin: 0.6em 0 0.4em;
+}
+
+.bio-text {
+	line-height: 180%;
+	height: 0%;
+	color: #313b40;
+	opacity: 0.85;
+	font-size: 1em;
+	padding: 0 1em 0 1.5em;
+	margin: 0 0 -0.35em;
+}
+
+.scroll-block {
+	height: 10em;
+	overflow: scroll;
+	border-bottom: 2px solid #ccc;
+}
+
+.more-info {
+	padding: 0.5em 1em;
+}
+
+.more-info p:nth-child(1) {
+	margin-bottom: 2em;
+}
+
+/*-------------------
+	 BUTTONS & LINKS
+-------------------*/
+
+.item-buttons {
+	display: flex;
+	width: 100%;
+}
+
+@supports (display: grid){
+	.item-buttons {
+		grid-column: span 2;
+		grid-row: 4;
+	}
+}
+
+.info, 
+.btn-tickets,
+.button-detals {
+	text-decoration: none;
+	text-align: center;
+	cursor: pointer;
+}
+
+.info:focus,
+.btn-tickets:focus, 
+.btn-details:focus {
+	outline: 2px solid #000;
+}
+
+.btn-details,
+.btn-tickets {
+	display: block;
+	color: #fff;
+	float: left;
+	width: 50%;
+	font-size: 1rem;
+	box-sizing: border-box;
+	border: none;
+	padding: 1rem;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	margin: 0;
+	transition: color 200ms ease-in 0s;
+}
+
+/* 
+JS & NO JS for Buttons
+s*/
+
+.wrapper1 .front-buttons,
+.wrapper1 .back-arrow {
+	display: none;
+}
+
+.wrapper1.frontback-cards .front-buttons,
+.wrapper1.frontback-cards .back-arrow {
+	display: block;
+}
+
+.wrapper1 .on-back {
+	width: 100%;
+	border-radius: 0 0 0.45em 0.45em;
+}
+
+.wrapper1.frontback-cards .on-back {
+	width: 50%;
+	border-radius: 0 0 0.45em 0;
+}
+
+
+.blue {
+	background-color: #4972c1;
+	background: linear-gradient(90deg, #72a1ff, #4972c1, #34579e, #4972c1, #72a1ff);
+	background-size: 400% 400%;
+	background-position: 0% 50%;
+	border-radius: 0 0 0.45em 0;
+}
+
+.blue:hover {
+	animation: gradientMove 6s ease infinite;
+}
+
+.grey {
+	background-color: #545b6d;
+	border-radius: 0 0 0 0.45em;
+	transition: background-color 200ms ease-in 0s;
+}
+
+.grey:hover {
+	background-color: #3b404c;
+}
+
+.back-arrow {
+	background: #545b6d url(https://bit.ly/2Fj85IN) center center no-repeat;
+	background-size: 20%;
+}
+
+/*-------------------
+	 	 BACK LINKS
+-------------------*/
+.info {
+	color: #313b40;
+	font-weight: 800;
+	position: relative;
+}
+
+.info::after {
+	content: "";
+	display: block;
+	position: absolute;
+	margin: 0;
+	left: 0;
+	bottom: -25%;
+	height: 0.2em;
+	width: 100%;
+	background-color: #4972c1;
+	background: linear-gradient(90deg, #72a1ff, #4972c1, #34579e, #4972c1, #72a1ff);
+	background-size: 400% 400%;
+	background-position: 0% 50%;
+	transition: all 0.2s ease-in 0s;
+}
+
+.info:hover::after {
+	height: 0.5em;
+	animation: gradientMove 6s ease both;
+}
+
+/*-------------------
+	 	 		GRID
+-------------------*/
+@supports (display: grid) {
+	.item-card,
+	.item-card-details {
+		display: grid;
+		grid-gap: 0;
+		grid-template-columns: repeat(2, auto);
+		grid-template-rows: auto;
+	}
+	.item-summary {
+		grid-column: span 2;
+		grid-row: 3;
+	}
+	.bio-block,
+	.scroll-block,
+	.more-info {
+		grid-column: span 2;
+		grid-row: auto;
+	}
+	.bio-details,
+	.bio-tickets {
+		grid-column: span 1;
+		grid-row: auto;
+	}
+}
+
+
+
+/*-------------------
+	 	 KEYFRAMES
+-------------------*/
+
+@keyframes scaleInLight {
+	0% {
+		opacity: 0;
+		transform: scale(0.9, 0.9);
+	}
+	100% {
+		opacity: 0.8;
+		transform: scale(1, 1);
+	}
+}
+
+@keyframes positionBack {
+	0% {
+		opacity: 0;
+		transform: rotateY(0deg);
+	}
+	50% {
+		opacity: 0.1;
+		transform: rotateY(90deg);
+	}
+	100% {
+		opacity: 1;
+		transform: rotateY(180deg);
+	}
+}
+
+@keyframes bounceLeft {
+	0% {
+		transform: translatex(0%);
+	}
+	50% {
+		transform: translatex(-30%);
+	}
+	100% {
+		transform: translatex(0%);
+	}
+}
+
+@keyframes gradientMove {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+@keyframes scaleIn {
+	0% {
+		opacity: 0;
+		transform: scale(0.9, 0.9);
+	}
+	100% {
+		opacity: 1;
+		transform: scale(1, 1);
+	}
+}
+
+@keyframes scaleInUp {
+	0% {
+		opacity: 0;
+		transform: scale(1, 1) translatey(90%);
+	}
+	100% {
+		opacity: 1;
+		transform: scale(1, 1) translatey(0%);
+	}
+}
+
+/*-------------------
+	 MEDIA QUERIES
+-------------------*/
+
+/* set a solid foundation
+that is the most important thing 
+then add extra stuff i.e. css grid
+
+I made it was more difficult for myself by doing this the other way around
+
+Developing for all browsers doesnt seem that bad if you build from most support and then add on the extra stuff */
+
+/* I just learned the terms for this! 
+Progressive Enhancement & Graceful Degredation */
+
+/* Name classes so they could be resued 
+and make sure to stay consistent with naming style ex. dash, underscore, etc. */
