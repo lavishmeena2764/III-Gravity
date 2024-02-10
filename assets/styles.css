@@ -122,9 +122,17 @@ nav[data-astro-cid-5blmo7yk] {
     list-style: none;
     color: white;
 }
+
+.nav-main[data-astro-cid-5blmo7yk] li[data-astro-cid-5blmo7yk] a {
+  color: white;
+  font-size: 12px;
+}
 @media screen and (min-width : 780px) {
   .nav-main[data-astro-cid-5blmo7yk] {
     gap: 5rem;
+}
+.nav-main[data-astro-cid-5blmo7yk] li[data-astro-cid-5blmo7yk] a {
+  font-size: 20px;
 }
 }
 
@@ -144,10 +152,6 @@ nav[data-astro-cid-5blmo7yk] {
     position: relative;
     cursor: pointer;
     color: white;
-}
-.nav-main[data-astro-cid-5blmo7yk] li[data-astro-cid-5blmo7yk] a {
-    color: white;
-    font-size: 16px;
 }
 
 .nav-main[data-astro-cid-5blmo7yk] li[data-astro-cid-5blmo7yk]:hover {
@@ -1709,14 +1713,17 @@ h1 {
   transform: translate(-50%, 0);
 }
 
-.schedule-cards__row:nth-child(odd) {
-  display: flex;
-  justify-content: flex-start;
-}
-
-.schedule-cards__row:nth-child(even) {
-  display: flex;
-  justify-content: flex-end;
+@media screen and (min-width : 760px){
+  .schedule-cards__row:nth-child(odd) {
+    display: flex;
+    justify-content: flex-start;
+  }
+  
+  .schedule-cards__row:nth-child(even) {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
 }
 
 .schedule-card {
