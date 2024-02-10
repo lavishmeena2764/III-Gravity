@@ -1207,7 +1207,7 @@ body{
     border-radius: 5px;
 	width: 100%;
 	background-color: #eaedef;
-	padding: 1.5rem;
+	padding: 1rem;
 	box-sizing: border-box;
 	margin-top: -0.2em;
 }
@@ -1713,7 +1713,6 @@ h1 {
   transform: translate(-50%, 0);
 }
 
-@media screen and (min-width : 760px){
   .schedule-cards__row:nth-child(odd) {
     display: flex;
     justify-content: flex-start;
@@ -1723,8 +1722,8 @@ h1 {
     display: flex;
     justify-content: flex-end;
   }
-  
-}
+
+
 
 .schedule-card {
     position: relative;
@@ -1762,6 +1761,11 @@ h1 {
 
 .schedule-cards__row:nth-child(odd) {
     text-align: right;
+}
+@media screen and (max-width : 480px){
+  .schedule-cards__row:nth-child(odd) {
+    text-align: left;
+}
 }
 
 .schedule-cards__row:nth-child(even) > :before {
